@@ -1,0 +1,77 @@
+{% extends 'student_navbar.html'%}
+
+{% block body %}
+<head>
+    <style>
+        
+        #Profilepic{
+         
+         border-radius:20%;
+        }
+        
+        button {
+           border: none;
+           color: black;
+           padding: 6px 10px;
+           text-align:center;
+           border-radius: 12px;
+           font-size: 14px;
+           margin: -50px 570px;
+           cursor: pointer;
+        }
+        body{
+        overflow-y: scroll;
+       }
+        
+    
+    </style>
+ </head>
+ <body>
+ <br>
+ 
+ <svg  width = "1245" height= "250" >
+     
+    <image href="{{user.student.image.url}}" x="350" y="15" height="218" width="225" /> 
+
+    <text x="570" y="25" fill=""  font-size+"29px" font-family="Franklin Gothic Medium">Welcome, {{user.get_full_name}}</text>
+    <text x="570" y="65" fill=""  font-size="16px" font-family="Franklin Gothic Medium">ID       </text>
+    <text x="675" y="65" fill=""  font-size="16px" font-family="Franklin Gothic Medium">{{user.id}}</text>
+    <text x="667" y="65" fill=""  font-size="16px" font-family="Franklin Gothic Medium">:</text>
+
+    <text x="570" y="89" fill=""  font-size="16px" font-family="Franklin Gothic Medium">Username </text>
+    <text x="675" y="89" fill=""  font-size="16px" font-family="Franklin Gothic Medium">{{user}}</text>
+    <text x="667" y="89" fill=""  font-size="16px" font-family="Franklin Gothic Medium">:</text>
+
+    <text x="570" y="113" fill=""  font-size="16px" font-family="Franklin Gothic Medium">Full Name </text>
+    <text x="675" y="113" fill=""  font-size="16px" font-family="Franklin Gothic Medium">{{user.get_full_name}}</text>
+    <text x="667" y="113" fill=""  font-size="16px" font-family="Franklin Gothic Medium">:</text>
+
+    <text x="570" y="137" fill=""  font-size="16px" font-family="Franklin Gothic Medium">Email </text>
+    <text x="675" y="137" fill=""  font-size="16px" font-family="Franklin Gothic Medium">{{user.email}}</text>
+    <text x="667" y="137" fill=""  font-size="16px" font-family="Franklin Gothic Medium">:</text>
+
+    <text x="570" y="161" fill=""  font-size="16px" font-family="Franklin Gothic Medium">Phone  </text>
+    <text x="675" y="161" fill=""  font-size="16px" font-family="Franklin Gothic Medium">{{user.student.phone}}</text>
+    <text x="667" y="161" fill=""  font-size="16px" font-family="Franklin Gothic Medium">:</text>
+
+    <text x="570" y="185" fill=""  font-size="16px" font-family="Franklin Gothic Medium">Branch </text>
+    <text x="675" y="185" fill=""  font-size="16px" font-family="Franklin Gothic Medium">{{user.student.branch}}</text>
+    <text x="667" y="185" fill=""  font-size="16px" font-family="Franklin Gothic Medium">:</text>
+
+    <text x="570" y="209" fill=""  font-size="16px" font-family="Franklin Gothic Medium">Classroom </text>
+    <text x="675" y="209" fill=""  font-size="16px" font-family="Franklin Gothic Medium">{{user.student.classroom}}</text>
+    <text x="667" y="209" fill=""  font-size="16px" font-family="Franklin Gothic Medium">:</text>
+
+    <text x="570" y="233" fill=""  font-size="16px" font-family="Franklin Gothic Medium">Roll no </text>
+    <text x="675" y="233" fill=""  font-size="16px" font-family="Franklin Gothic Medium">{{user.student.roll_no}}</text>
+    <text x="667" y="233" fill=""  font-size="16px" font-family="Franklin Gothic Medium">:</text>
+    
+    
+    
+   
+</svg>
+<a href="/edit_profile/"><button  x = "670 " y= "257 "class = "EditProfileButton" style="font-family:Franklin Gothic Medium;background-color:aqua">Edit Profile</button></a>
+</body>
+ 
+
+{% endblock %}

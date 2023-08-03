@@ -1,0 +1,46 @@
+{% extends 'admin_navbar.html' %}
+{% load static %}
+
+{% block body %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+            overflow-y: scroll;
+           }
+        .form-group{
+            font-family:Franklin Gothic Medium;
+            padding:5px;
+            text-align:left;
+            margin-left:425px;
+        }
+    </style>
+</head>
+<center>
+<br><br>
+<div class="container mt-4">
+    <form method="POST"> {% csrf_token %}
+        <h1 class="row2" style ="font-family:Franklin Gothic Medium;padding:5px 500px"><u>Issue Book</u></h1>
+        {% for i in form %}
+        <div class="form-group">
+            <label class="control-label col-xs-4" >{{ i.label_tag }}</label>
+            <div class="col-xs-4 mt-2">
+              {{ i }}
+            </div>
+        </div>
+        {% endfor %}
+        <br>
+        <button type="submit" style = "font-family:Franklin Gothic Medium;background-color:aqua;border-radius:12px;border-width:0px;font-size:16px">Issue Book</button>
+    </form>
+</div>
+</center>
+{% endblock %}
+{% block js %}
+<script>
+    {% if alert %}
+    alert("Book Successfully Issued.")
+    document.location = "/issue_book"
+    {% endif %}
+</script>
+{% endblock %}
+

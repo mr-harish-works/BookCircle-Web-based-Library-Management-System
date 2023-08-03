@@ -1,0 +1,54 @@
+{% extends 'student_navbar.html' %}
+
+{% block body %}
+<head>
+    <style>
+        .class1{
+            font-family:"Franklin Gothic Medium";
+            padding: 5px;
+          }
+          body{
+            overflow-y: scroll;
+           }
+    </style>
+</head>
+<center><br>
+<form method="POST"> {% csrf_token %}
+    <h1 class="row2" style ="font-family:Franklin Gothic Medium;padding:5px 500px"><u>Edit Profile</u></h1>
+    <div class="class1">
+        <label style="font-weight: bold;">Email&nbsp;</label>&emsp; &emsp;&emsp;&emsp;&emsp;
+        <input type="email"  name="email" value="{{user.email}}">
+    </div>
+    <div class="class1">
+        <label style="font-weight: bold;">Mobile Number&nbsp;</label>&emsp;
+        <input type="number"  name="phone" value="{{user.student.phone}}">
+    </div>
+
+    <div class="class1">
+        <label style="font-weight: bold;">Branch Name</label>&emsp;&emsp;
+        <input type="text" name="branch" value="{{user.student.branch}}">
+    </div>
+    <div class="class1">
+        <label style="font-weight: bold;">Class Name&nbsp;&nbsp;&nbsp;</label>&emsp;&emsp;
+        <input type="text"  name="classroom" value="{{user.student.classroom}}">
+    </div>
+    <div class="class1">
+        <label style="font-weight: bold;">Roll Number&nbsp;&nbsp;</label>&emsp;&emsp;
+        <input type="text" name="roll_no" value="{{user.student.roll_no}}">
+    </div>
+    <br>
+    <button type="submit" style = "font-family:Franklin Gothic Medium;background-color:aqua;border-radius:12px;border-width:0px;font-size:15px" >Update Profile</button>
+
+</form>
+</center>
+
+{% endblock %}
+
+{% block js %}
+<script>
+    {% if alert %}
+    alert("Profile Updated Successfully.")
+    document.location = "/profile"
+    {% endif %}
+</script>
+{% endblock %}

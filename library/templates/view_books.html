@@ -1,0 +1,56 @@
+{% extends 'admin_navbar.html' %}
+{% load static %}
+{% block body %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        table{
+            width:80%;
+        }
+        th,td{
+            font-family:"Franklin Gothic Medium";
+            font-size:16px;
+            padding:5px;
+            text-align:center;
+        }
+        table,th,td{
+            border:1px solid;
+            border-collapse: collapse;
+        }
+        tr.text2:hover{background-color:#87CEEB;}
+        body{
+            overflow-y:scroll;
+        }
+    </style>
+</head>
+<center>
+<div class="container mt-4">
+    <h1 class="text-center" style="font-family:Franklin Gothic Medium;"><u>All Books List</u></h1>
+    <table class="book-list-table" id="example">
+        <thead>
+            <tr class="text1">
+                <th>Sr.No</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>ISBN Number</th>
+                <th>Category</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr class = "text2">
+                <td>{{forloop.counter}}.</td>
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.isbn}}</td>
+                <td>{{book.category}}</td>
+                <td><a href="/delete_book/{{book.id}}/" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this book?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+</center>
+{% endblock %}

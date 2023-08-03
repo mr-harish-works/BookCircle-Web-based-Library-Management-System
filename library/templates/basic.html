@@ -1,0 +1,58 @@
+<!doctype html>
+{%load static%}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Circle | Library</title>
+    
+    <style>
+    ul {
+  	list-style-type: none;
+  	margin: 0;
+  	padding:0;
+	border-radius:12px;
+  	overflow: hidden;
+  	background-color: black;
+	}
+
+    li {
+  	float:left;
+    font-family: Franklin Gothic Medium;
+         
+	}
+
+    li a {
+  	display: block;
+  	color: white;
+  	text-align: right;
+    font-size : 20px;
+  	padding: 10px 16px;
+  	text-decoration: none;
+	}
+
+   li a:hover {
+  	background-color: aqua;
+	}
+</style>
+    
+</head>
+<body>
+<a class="navbar-brand" href="#" ><img src="{%static 'BC2.png' %}" width = "215" height = "215" style = "padding:0px 516px;background-color :black;border-radius:12px"></a>
+
+<ul>
+  
+  <li><a class="active" href="/">Home</a></li>
+  <li><a href="/admin_login">Admin</a></li>
+  <li><a href="/student_registration/">Student Registration</a></li>
+  <li><a href="/student_login">Student Login</a></li>
+</ul>
+
+</body>
+{%block template1%}
+{%endblock%}
+{%block body%}
+{%endblock%}
+{%block js%}
+{%endblock%}

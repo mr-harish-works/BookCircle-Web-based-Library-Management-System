@@ -1,0 +1,61 @@
+{% extends 'student_navbar.html' %}
+
+{% block body %}
+<head>
+    <style>
+        table{
+            width:80%;
+        }
+        th,td{
+            font-family:"Franklin Gothic Medium";
+            font-size:16px;
+            padding:5px;
+            text-align:center;
+        }
+        table,th,td{
+            border:1px solid;
+            border-collapse: collapse;
+        }
+        tr.text2:hover{background-color:#87CEEB;}
+        body{
+            overflow-y:scroll;
+        }
+    </style>
+</head>
+<center>
+<div class="container mt-4">
+    <h1 style="font-family:Franklin Gothic Medium;"><u>All Issued Books</u></h1>
+    
+    <table  id="issued">
+        <thead>
+            <tr class="text1">
+                <th>Sr.No</th>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Issued Date</th>
+                <th>Expiry Date</th>
+                <th>Fine</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in li1 %}
+            <tr class="text2">
+                <td>{{forloop.counter}}.</td>
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>{{i.2}}</td>
+                <td>{{i.3}}</td>
+                {% endfor %}
+                {% for i in li2 %}
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>₹ {{i.2}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</center>
+{% endblock %}

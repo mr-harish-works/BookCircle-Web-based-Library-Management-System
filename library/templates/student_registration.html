@@ -1,0 +1,141 @@
+{%extends 'basic.html'%}
+
+{% block body %}  
+<head>
+
+ <style>
+    .container,h1{ 
+        display: flex;
+        flex-direction: row;
+    
+        justify-content: center;
+    }
+    button{
+  	    border: none;
+  	    color: black;
+  	    padding: 5px 8px;
+  	    text-align:center;
+  	    border-radius: 12px;
+  	    font-size: 14px;
+  	    margin: 15px 50px;
+  	    cursor: pointer;
+        display: flex;
+        flex-direction: row;
+    
+        justify-content: center;
+	} 
+    .row{
+        
+        display: flex;
+        flex-direction: row;
+        padding:10px;
+        justify-content: center;
+   
+    }
+    .row1{
+        margin-left:5.6em;
+    }
+ 
+    form{ 
+        display: table;
+        justify-content: 
+        center;     
+    }
+    p{ 
+        display: table-row;  
+    }
+    label { 
+        display: table-cell;
+        margin-top:1em;
+    }
+    input { 
+        display: table-cell;
+        margin-right: 2em;
+        margin-top:0.3em;
+        margin-bottom:0.8em 
+    }
+
+ </style>
+
+
+</head>
+
+<div class="container">
+    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    <h1 class="text-center" style = "font-family:Franklin Gothic Medium"><u>Student Registration</u></h1>
+    <div class="row1 mt-4">
+            <label style="font-family:Franklin Gothic Medium">Username</label>
+            <input type="text" class="form-control mt-2" name="username" placeholder="Enter Username" align = "right" required>
+    </div>
+
+    <div class="row mt-4 col-md-12">
+        <div class="form-group col-md-6">
+            <label style="font-family:Franklin Gothic Medium">First Name</label>
+            <input type="text" class="form-control mt-2" name="first_name" placeholder="Enter First Name" align = "right" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label style="font-family:Franklin Gothic Medium">Last Name</label>
+            <input type="text" class="form-control mt-2" name="last_name" placeholder="Enter Last Name" align = "right" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-6">
+            <label style="font-family:Franklin Gothic Medium">Email</label>
+            <input type="email" class="form-control mt-2" name="email" placeholder="Enter Email" align = "right" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label style="font-family:Franklin Gothic Medium">Mobile Number</label>
+            <input type="number" class="form-control mt-2" name="phone" placeholder="Enter Mobile Number" align = "right" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-6">
+            <label style="font-family:Franklin Gothic Medium">Branch Name</label>
+            <input type="text" class="form-control mt-2" name="branch" placeholder="Enter Branch Name" align = "right" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label style="font-family:Franklin Gothic Medium">Class Name</label>
+            <input type="text" class="form-control mt-2" name="classroom" placeholder="Enter Class Name" align = "right" required>
+        </div>
+    </div>
+
+    <div class="row mt-4" style="margin-left:5em">
+        <div class="form-group col-md-6">
+            <label style="font-family:Franklin Gothic Medium">Roll Number</label>
+            <input type="text" class="form-control mt-2" name="roll_no" placeholder="Enter Roll Number" align = "right" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label style="font-family:Franklin Gothic Medium">Student Image</label>
+            <input type="file" class="form-control mt-2" name="image" align = "right" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-6">
+            <label style="font-family:Franklin Gothic Medium">Password</label>
+            <input type="password" class="form-control mt-2" name="password" placeholder="Enter Password" align = "right" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label style="font-family:Franklin Gothic Medium">Confirm Password</label>
+            <input type="password" class="form-control mt-2" name="confirm_password" placeholder="Confirm Password" align = "right" required>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="form-group col-md-6">
+            <button type="submit" class="btn btn-outline-primary mt-4" style = "font-family:Franklin Gothic Medium;background-color:aqua;">Register</button>
+        </div>
+    </div>
+</div>
+   
+</form>
+{% endblock %}
+{% block js %}
+<script>
+	{% if alert %}
+    alert("Registration Successfull.")
+    document.location = "/student_login"
+    {% endif %}
+</script>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'basic.html' %}
+{%block body%}
+<head>
+  <style>
+   .row1{
+    padding:5px 510px;
+    } 
+    button{
+  	    border: none;
+  	    color: black;
+  	    padding: 5px 8px;
+  	    text-align:center;
+  	    border-radius: 12px;
+  	    font-size: 14px;
+  	    margin: 15px 50px;
+  	    cursor: pointer;
+	} 
+  input{
+    border: 2px black;
+    border-radius: 4px;
+  }
+   .row0{
+    padding:30px 0px;
+    
+   }
+   body{
+    overflow-y: scroll;
+   }
+   
+  </style>
+</head>
+
+<body>
+
+<form method="POST">  
+   
+{% csrf_token %}
+<div class="row0">
+    <h1 class="row2" style ="font-family:Franklin Gothic Medium;padding:5px 500px"><u>Admin   Login</u></h1>
+    <div class="row1">
+        
+      <label style="font-family:Franklin Gothic Medium">Username</label>
+      <input type="text" class="form-control mt-2" name="username" placeholder="Enter Username" required>
+     </div>
+     <div class="row1">  
+       
+      <label style="font-family:Franklin Gothic Medium">Password</label>
+      <input type="password" class="form-control mt-2" name="password" placeholder="Enter Password" required>
+     <button type="submit" class="but1" style = "font-family:Franklin Gothic Medium;background-color:aqua">Login</button>   
+    </div>
+    
+</div>
+</body>
+{%endblock%}
+{% block js %}
+<script>
+    {% if alert %}
+    alert("Invalid Username or Password.")
+    document.location = "/admin_login"
+    {% endif %}
+</script>
+{% endblock %}
